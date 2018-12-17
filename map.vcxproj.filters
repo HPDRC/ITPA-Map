@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="HTML">
+      <UniqueIdentifier>{fcdfc95d-c859-41c8-a5bc-50c78c2caacf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="todo.txt" />
+    <Text Include="MAKEMAP.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="index.html">
+      <Filter>HTML</Filter>
+    </None>
+    <None Include="debug.html">
+      <Filter>HTML</Filter>
+    </None>
+    <None Include="styles.js" />
+    <None Include="content.js" />
+    <None Include="tfmapapp.js" />
+    <None Include="appsizer.js" />
+    <None Include="auxmapwrapper.js" />
+    <None Include="bottompane.js" />
+    <None Include="compass.js" />
+    <None Include="datasets.js" />
+    <None Include="datasetsbar.js" />
+    <None Include="datasetsearch.js" />
+    <None Include="directionsaddress.js" />
+    <None Include="directionspanel.js" />
+    <None Include="directionsresults.js" />
+    <None Include="directionsresultscontent.js" />
+    <None Include="directionsresultsitem.js" />
+    <None Include="global.js" />
+    <None Include="iconbutton.js" />
+    <None Include="inputbox.js" />
+    <None Include="mapfeaturepropsdisplayer.js" />
+    <None Include="maplocations.js" />
+    <None Include="overmapcanvas.js" />
+    <None Include="maptoolbar.js" />
+    <None Include="photodisplayer.js" />
+    <None Include="photolist.js" />
+    <None Include="photolistdisplayer.js" />
+    <None Include="pinmapfeature.js" />
+    <None Include="searchbar.js" />
+    <None Include="searchmapfeatures.js" />
+    <None Include="sidepane.js" />
+    <None Include="togglebutton.js" />
+    <None Include="tooltipdisplayer.js" />
+    <None Include="lsed.js" />
+    <None Include="mapfeaturedrag.js" />
+    <None Include="measuretool.js" />
+    <None Include="linecliptest.js" />
+    <None Include="moremaptools.js" />
+    <None Include="baselayers.js" />
+    <None Include="baselayerstoolbar.js" />
+    <None Include="tfmapappinit.js" />
+    <None Include="customappcontent.js" />
+    <None Include="transitbus.js" />
+    <None Include="mdtbusapp.js" />
+    <None Include="geofences.js" />
+    <None Include="transit.js" />
+    <None Include="transitplan.js" />
+    <None Include="geofencesapp.js" />
+    <None Include="gtfs\notify.js" />
+    <None Include="gtfs\signin.js" />
+    <None Include="gtfs\api.js" />
+    <None Include="gtfs\css.js" />
+    <None Include="gtfs\app.js" />
+    <None Include="gtfs\userslist.js" />
+    <None Include="gtfs\userscontent.js" />
+    <None Include="gtfs\agenciescontent.js" />
+    <None Include="gtfs\agencieslist.js" />
+    <None Include="gtfs\agencyeditor.js" />
+    <None Include="gtfs\editorcommon.js" />
+    <None Include="gtfs\routeslisteditor.js" />
+    <None Include="gtfs\agencieslisteditor.js" />
+    <None Include="gtfs\stopslisteditor.js" />
+    <None Include="gtfs\serviceslisteditor.js" />
+    <None Include="gtfs\tripslisteditor.js" />
+    <None Include="gtfs\stopsequenceslisteditor.js" />
+    <None Include="sseq\index.html" />
+    <None Include="sseq\init.jsx" />
+    <None Include="sseq\stop_sequences.jsx" />
+    <None Include="perspectivemap.js" />
+    <None Include="directionstest\directionstest.jsx" />
+    <None Include="directionstest\init.jsx" />
+    <None Include="directionstest\debug.html" />
+    <None Include="rutils\helpers.jsx" />
+    <None Include="rutils\login.jsx" />
+    <None Include="directionstest\index.html" />
+    <None Include="agencies\agencies.jsx" />
+    <None Include="agencies\debug.html" />
+    <None Include="agencies\index.html" />
+    <None Include="agencies\init.jsx" />
+    <None Include="gtfseditor\calendar.jsx" />
+    <None Include="gtfseditor\calendar_dates.jsx" />
+    <None Include="gtfseditor\debug.html" />
+    <None Include="gtfseditor\index.html" />
+    <None Include="gtfseditor\init.jsx" />
+    <None Include="gtfseditor\post.jsx" />
+    <None Include="gtfseditor\routes.jsx" />
+    <None Include="gtfseditor\shapes.jsx" />
+    <None Include="gtfseditor\stop_sequences.jsx" />
+    <None Include="gtfseditor\stops.jsx" />
+    <None Include="gtfseditor\trips.jsx" />
+    <None Include="crudx\debug.html" />
+    <None Include="crudx\index.html" />
+    <None Include="crudx\init.jsx" />
+    <None Include="crudx\crudx.jsx" />
+    <None Include="directionstestm\debug.html" />
+    <None Include="directionstestm\directionstest.jsx" />
+    <None Include="directionstestm\helpers.jsx" />
+    <None Include="directionstestm\index.html" />
+    <None Include="directionstestm\init.jsx" />
+  </ItemGroup>
+</Project>

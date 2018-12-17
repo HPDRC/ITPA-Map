@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+
+    <link href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:100,300,400,700" rel="stylesheet" type="text/css">
+
+    <!---->
+    <style>
+
+        .ripple {
+            position: relative;
+            overflow: hidden;
+            transform: translate3d(0,0,0)
+        }
+
+            .ripple::after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                pointer-events: none;
+                background-image: radial-gradient(circle,#000 10%,transparent 10.01%);
+                background-repeat: no-repeat;
+                background-position: 50%;
+                transform: scale(10,10);
+                opacity: 0;
+                transition: transform .5s,opacity 1s
+            }
+
+            .ripple:active::after {
+                transform: scale(0,0);
+                opacity: .2;
+                transition: 0s
+            }
+
+        .rippleWhite {
+            position: relative;
+            overflow: hidden;
+            transform: translate3d(0,0,0)
+        }
+
+            .rippleWhite::after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                pointer-events: none;
+                background-image: radial-gradient(circle,#fff 10%,transparent 10.01%);
+                background-repeat: no-repeat;
+                background-position: 50%;
+                transform: scale(10,10);
+                opacity: 0;
+                transition: transform .5s,opacity 1s
+            }
+
+            .rippleWhite:active::after {
+                transform: scale(0,0);
+                opacity: .2;
+                transition: 0s
+            }
+
+    </style>
+
+    <title></title>
+</head>
+<body>
+
+    <script type="text/javascript" src="./ol-debug.js"></script>
+    <script type="text/javascript" src="./tfmap-cat.txt"></script>
+</body>
+</html>

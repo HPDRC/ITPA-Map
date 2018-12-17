@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+    <title>Chat!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font: 13px Helvetica, Arial;
+        }
+
+        .form {
+            background: #000;
+            padding: 3px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+           .form input {
+                border: 0;
+                padding: 10px;
+                width: 90%;
+                margin-right: .5%;
+            }
+
+            .form button {
+                width: 8.5%;
+                background: rgb(130, 224, 255);
+                border: none;
+                padding: 10px;
+            }
+
+        #messages {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+            #messages li {
+                padding: 5px 10px;
+            }
+
+                #messages li:nth-child(odd) {
+                    background: #eee;
+                }
+    </style>
+</head>
+<body>
+    <ul id="messages"></ul>
+    <div class="form">
+        <input id="msgInput" autocomplete="off" />
+        <button id="sendButton">Send</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <!--<script src="http://192.168.0.121:1337/socket.io.js"></script>-->
+    <script>
+        //var socket = io('http://192.168.0.121:1337');
+        var socket = io('http://192.168.0.44');
+        var sendButton = document.getElementById("sendButton");
+        var msgInput = document.getElementById("msgInput");
+        var messages = document.getElementById("messages");
+        socket.on('ev_messagein', function (email, msg) {
+            var li = document.createElement('li');
+            li.innerHTML = email + '<br />' + msg;
+            messages.appendChild(li);
+        });
+        sendButton.addEventListener("click", function (event) {
+            var msgText = msgInput.value;
+            if (!!msgText) {
+                msgText = msgText.trim();
+                if (msgText.length > 0) {
+                    socket.emit('ev_messageout', msgText);
+                }
+            }
+            msgInput.value = "";
+            msgInput.focus();
+            sendAuth({
+                //email: 'foo@bar.com', password: '1Foo@Bar'
+                //email: 'admin@bar.com', password: '1@Admin.'
+                email: 'leonardbay@gmail.com', password: '1Foo@Bar'
+            },
+                function (xhr1) {
+                    getUser(function (xhr2) {
+                        console.log('here');
+                    });
+                }
+            );
+            
+        });
+        function sendAuth(credentials, then) { return callAPI('POST', 'auth', credentials, then); };
+        function getUser(then) { return callAPI('GET', 'user', undefined, then) };
+        function callAPI(callVerb, verb, data, then) {
+            try {
+                //var uri = "http://192.168.0.121:1337/" + verb;
+                var uri = "http://192.168.0.44/" + verb;
+                //var uri = "http://localhost:1337/" + verb;
+                var xhr = new XMLHttpRequest({ mozSystem: true });
+
+                xhr.open(callVerb, uri, true);
+                xhr.withCredentials = true;
+                if (!!data) {
+                    xhr.setRequestHeader("Content-type", "application/json");
+                }
+                //xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+                        console.log(xhr.status + ': ' + xhr.responseText);
+                        if (!!then) { then(xhr); }
+                    }
+                };
+                if (!!data) { data = JSON.stringify(data); }
+                xhr.send(data);
+            }
+            catch (e) {
+                //if (!!then) { then(xhr); }
+            }
+        }
+    </script>
+</body>
+</html>

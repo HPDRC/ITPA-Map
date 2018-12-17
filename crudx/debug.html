@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="htmlClass">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+
+    <link href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:100,300,400,700" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!--
+     <script crossorigin="crossorigin" src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+     <script crossorigin="crossorigin" src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+     <script crossorigin="crossorigin" src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    -->
+
+    <script crossorigin="anonymous" src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin="anonymous" src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin="anonymous" src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="http://192.168.0.121/terramap/openlayers/olpre.js"></script>
+
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apiCommon/namespace.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apiCommon/consts.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apiCommon/platform.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apiCommon/methods.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apiCommon/mapmeasures.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apiCommon/domui.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apiCommon/cookies.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apiCommon/routingservice.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apiCommon/ajax.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apiCommon/cssstylecreator.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apiCommon/styles.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apiCommon/debug.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apiCommon/keyedlist.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apiCommon/listeners.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apiCommon/canvas.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apiCommon/urlparams.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/mapapi/map.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/mapapi/polycode.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/mapapi/customcontrol.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/mapapi/featurelayer.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/mapapi/mapfeature.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/mapapi/mapfeaturestyle.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/mapapi/mapfeaturegeom.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/mapapi/postrender.js"></script>
+
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apps/webgl/vector3.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apps/webgl//matrix4.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apps/webgl/webgl.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apps/webgl/context.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apps/webgl/buffers.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apps/webgl/vertexformats.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apps/webgl/primitives.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apps/webgl/texture2.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apps/webgl/scene.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apps/webgl/framebuffer.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apps/webgl/program.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/terramap/apps/webgl/programs.js"></script>
+
+    <script type="text/javascript" src="http://192.168.0.121/map/perspectivemap.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/datasets.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/global.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/styles.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/togglebutton.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/iconbutton.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/mapfeaturepropsdisplayer.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/appsizer.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/inputbox.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/datasetsearch.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/tooltipdisplayer.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/searchbar.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/searchmapfeatures.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/sidepane.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/bottompane.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/compass.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/maptoolbar.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/maplocations.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/pinmapfeature.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/datasetsbar.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/baselayers.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/baselayerstoolbar.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/auxmapwrapper.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/directionsaddress.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/directionsresultsitem.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/directionsresultscontent.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/directionsresults.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/directionspanel.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/overmapcanvas.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/photodisplayer.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/photolistdisplayer.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/photolist.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/lsed.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/mapfeaturedrag.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/measuretool.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/downloadtool.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/linecliptest.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/moremaptools.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/customappcontent.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/content.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/tfmapapp.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/transit.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/transitbus.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/transitplan.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/mdtbusapp.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/geofences.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/geofencesapp.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/gtfs/css.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/gtfs/api.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/gtfs/notify.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/gtfs/signin.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/gtfs/userslist.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/gtfs/agencieslist.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/gtfs/userscontent.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/gtfs/agenciescontent.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/gtfs/editorcommon.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/gtfs/routeslisteditor.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/gtfs/stopsequenceslisteditor.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/gtfs/tripslisteditor.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/gtfs/stopslisteditor.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/gtfs/serviceslisteditor.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/gtfs/agencieslisteditor.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/gtfs/agencyeditor.js"></script>
+    <script type="text/javascript" src="http://192.168.0.121/map/gtfs/app.js"></script>
+
+    <link href="../rutils/common.css" rel="stylesheet" type="text/css">
+
+    <title>CRUDExplorer</title>
+</head>
+<body class="bodyClass">
+    <div class="topDiv">
+        <div class="leftSide">
+            <div class="topContainer" id="loginContainer"></div>
+            <div class="topContainer" id="crudxContainer"></div>
+        </div>
+        <iframe src="http://localhost/map/debug.html?fmap=m2&directionsbus=1&type=map&dlayerextent=20&perspectivemap=&Lat=25.757765&Lon=-80.367935&res=&Legendh=$$http://n00.cs.fiu.edu/defaultmapWMFL$$&Panels=type+zoom+nav+overview+measure+download+legend+fullscreen" id="mapDiv" class="rightSide"></iframe>
+    </div>
+    <script crossorigin="anonymous" type="text/babel" src="../rutils/helpers.jsx"></script>
+    <script crossorigin="anonymous" type="text/babel" src="../rutils/login.jsx"></script>
+    <script crossorigin="anonymous" type="text/babel" src="./crudx.jsx"></script>
+    <script crossorigin="anonymous" type="text/babel" src="./init.jsx"></script>
+</body>
+</html>

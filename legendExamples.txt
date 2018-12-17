@@ -1,0 +1,344 @@
+function testLegend(legendStrTest) {
+    var defaultHybridLegend = '{Cities::~Capitals:Capitals_WorldMap@wm_Capitals-120-6000;Capitals:Capitals_WorldMap@wm_Capitals-6000-15000;~Metro:Big_Cities_over_million_WorldMap@wm_Cities_Greater_900K-120-5000;Metro:Big_Cities_over_million_WorldMap@wm_Cities_Greater_900K-5000-15000;~Cities:Cities_WorldMap@wm_Cities_75K_to_900K-120-2400+wm_Cities_Greater_900K-120-2400+wm_Cities_Unknownpop-120-2400;Cities:Cities_WorldMap@wm_Cities_75K_to_900K-2400-15000+wm_Cities_Greater_900K-2400-15000+wm_Cities_Unknownpop-2400-15000;};{Hubs::~Ports:Marine_Ports_WorldMap@wm_Marine_Ports-120-360;Ports:Marine_Ports_WorldMap@wm_Marine_Ports-360-2000;~Railway:Railway_Stations_WorldMap@wm_Railway_Stations-120-240;~Airports:Airports_WorldMap@wm_Airports-120-240;};{Water::Bays:Seas_and_Bays_WorldMap@wm_Seas_Bays-120-2000;Glaciers:Glaciers_WorldMap@wm_Glacier-120-4000;~Rivers_B:Lake_and_River_contours_WorldMap@wm_Water_Poly-120-500;~Great_Lakes_L:Great_Lakes_labels_WorldMap@WM_GREAT_LAKES_NAME-120-4000;~Great_Lakes_B:Great_Lakes_contours_WorldMap@wm_Great_Lakes-120-4000;OSM-water:Lake_and_River_contours_from_Open_Street_Maps@osm_water-0-4000;};{Regions::~Admin_L:States_and_Provinces_names_labeled_WorldMap@wm_World_Admin_name-120-2000;~Admin_B:States_and_Provinces_boundaries_WorldMap@wm_World_Admin-120-2000;~Countries_L:Nation_names_labeled_WorldMap@nation_name-2000-5000;Countries_L:Nation_names_labeled_WorldMap@nation_name-5000-30000;~Countries_B:Nations_boundaries_WorldMap@wm_World_Nations-120-15000;OSM-Admin:Administrative_boundaries_from_Open_Street_Maps@osm_admin-0-60000;};{Parcels::FA-address:Addresses_from_First_American_Parcel_Data@fa_address-0-0.5;FA-owner:Property_owner_from_First_American_Parcel_Data@fa_owner-0-0.5;~lines:Property_lines,_from_First_American@fa_parcel-0-1;lines:Property_lines,_from_First_American@fa_parcel-1-2;OSM-buildings:Building_contours_from_Open_Street_Maps@osm_buildings-0-7;};{People::population:People_per_block_per_Census_2000@blk_pop-0-5;income:Aggregate_Neighborhood_Income_and_number_of_homes,_per_Census-2000@bg_mhinc-0.7-10+blkgrpy-0.7-10;};{Services::~business:Yellow_Pages@nypages-0-1.2;business:Yellow_Pages@nypages-1.2-5;food:Restaurants_from_NavTeq@nv_restrnts-0-10;doctors:Physicians_specialties@physicianspecialty-0-5;};Landmarks:Cultural_Landmarks_WorldMap@wm_Cultural_Landmarks-120-240;Utilities:Utilities_WorldMap@wm_Utilities-120-720;Environment:Hydrology@prism-0-120;~Places:Places@gnis2-0-6+hotels-0-6;Places:Places@gnis2-6-24+hotels-6-24;OSM-place-names:Place_names_labeled_from_Open_Street_Maps@osm_place_names-0-30000;{Roads::lines:Road_lines_from_NavTeq@street-0-2000;names:Road_names_labeled_from_NavTeq@street_names-0-240;~OSM-lines:Road_lines_from_Open_Street_Maps@osm_roads-0.5-7000;OSM-lines:Road_lines_from_Open_Street_Maps@osm_roads-0-0.5;~OSM-names:Road_names_labeled_from_Open_Street_Maps@osm_road_names-0-7000;~routes:Routes_WorldMap@wm_Major_Routes-120-1000+wm_Minor_Routes-120-1000;routes:Routes_WorldMap@wm_Major_Routes-1000-5000+wm_Minor_Routes-1000-5000;~railways:Railroad_WorldMap@wm_Railroad_Track-120-2000;};{Towns::~borders:Borders@incorp-0-120;~towns:Cities,_towns@wtown-0-60;};';
+    var defaultMapLegend = '{OSM::~buildings:Building_outlines@osm_buildings-0-60;~land:Land@osm_land-0-240000;~landuse:Land_usage_information@osm_landuse-0-7000;~place_names:Names_for_country,state,city_and_other small_places@osm_place_names-0-15000;~road_names:Road_names@osm_road_names-0-240;~roads:Roads@osm_roads-0-7000;~water:Water_outlines@osm_water-0-15000;};';
+    var defaultM1Legend = '{Cities::~Capitals:Capitals_WorldMap@wm_Capitals-100-5000-.f2;Capitals:Capitals_WorldMap@wm_Capitals-5000-99999-.f2;~Metro:Big_Cities_over_million_WorldMap@wm_Cities_Greater_900K-100-4000-.f2;Metro:Big_Cities_over_million_WorldMap@wm_Cities_Greater_900K-4000-12000-.f2;~Cities:Cities_WorldMap@wm_Cities_75K_to_900K-100-2000-.f3+wm_Cities_Greater_900K-100-2000-.f2+wm_Cities_Unknownpop-100-2000-.f3;Cities:Cities_WorldMap@wm_Cities_75K_to_900K-2000-6000-.f3+wm_Cities_Greater_900K-2000-6000-.f2+wm_Cities_Unknownpop-2000-6000-.f3};{Hubs::~Ports:Marine_Ports_WorldMap@wm_Marine_Ports-100-300-.f3;Ports:Marine_Ports_WorldMap@wm_Marine_Ports-300-10000-.f3;~Railway:Railway_Stations_WorldMap@wm_Railway_Stations-100-300-.f3;Railway:Railway_Stations_WorldMap@wm_Railway_Stations-300-10000-.f3;~Airports:Airports_WorldMap@wm_Airports-100-500-.f3;Airports:Airports_WorldMap@wm_Airports-500-10000-.f3};Landmarks:Cultural_Landmarks_WorldMap@wm_Cultural_Landmarks-100-1500-.f3;Utilities:Utilities_WorldMap@wm_Utilities-100-600-.1_50ff0000;{Roads::~Routes:Routes_WorldMap@wm_Major_Routes-100-800-.2nB3ff8000+wm_Minor_Routes-100-800-.lnB3ffff00+wm_Major_Routes-100-800-.lnB3ff8000+wm_Minor_Routes-100-800-.lnB3ffff00;Routes:Routes_WorldMap@wm_Major_Routes-800-4000-.2nB3ff8000+wm_Minor_Routes-800-4000-.lnB3ffff00+wm_Major_Routes-800-4000-.lnB3ff8000+wm_Minor_Routes-800-4000-.lnB3ffff00;~Railways:Railroad_WorldMap@wm_Railroad_Track-100-2000-.l_5000ff00;Railways:Railroad_WorldMap@wm_Railroad_Track-2000-8000-.l_5000ff00};{Water::Bays:Seas_and_Bays_WorldMap@wm_Seas_Bays-100-3000-.f4;Glaciers:Glaciers_WorldMap@wm_Glacier-100-80000-.t0t6e6e6e000001ffffff||ttt6e6e6e000001ffffff;~Rivers_B:Lake_and_River_contours_WorldMap@wm_Water_Poly-100-3000-.t00806e6e6ef099b3cc70ffffff||0t0806e6e6ef099b3cc70ffffffi;Rivers_B:Lake_and_River_contours_WorldMap@wm_Water_Poly-3000-10000-.t00806e6e6ef099b3cc70ffffff||0t0806e6e6ef099b3cc70ffffffi;~Great_Lakes_L:Great_Lakes_labels_WorldMap@WM_GREAT_LAKES_NAME-100-3000-.l2;Great_Lakes_L:Great_Lakes_labels_WorldMap@WM_GREAT_LAKES_NAME-3000-10000-.l2;~Great_Lakes_B:Great_Lakes_contours_WorldMap@wm_Great_Lakes-100-6000-.t00806e6e6e8099b3ccff000001||0t0806e6e6e8099b3ccff000001;Great_Lakes_B:Great_Lakes_contours_WorldMap@wm_Great_Lakes-6000-99999-.t00806e6e6e8099b3ccff000001||0t0806e6e6e8099b3ccff000001};{Regions::~Admin_L:States_and_Provinces_names_labeled_WorldMap@wm_World_Admin_name-100-3000-.l2;Admin_L:States_and_Provinces_names_labeled_WorldMap@wm_World_Admin_name-3000-10000-.l2;~Admin_B:States_and_Provinces_boundaries_WorldMap@wm_World_Admin-100-10000-.t0080ffffffffe8e8e5ffffffff||tt080323232ffe8e8e5ffffffff;Admin_B:States_and_Provinces_boundaries_WorldMap@wm_World_Admin-10000-40000-.t0080ffffffffe8e8e5ffffffff||tt080323232ffe8e8e5ffffffff;~Countries_L:Nation_names_labeled_WorldMap@nation_name-100-5000-.l2;Countries_L:Nation_names_labeled_WorldMap@nation_name-5000-99999-.l2;~Countries_B:Nations_boundaries_WorldMap@wm_World_Nations-100-100000-.t0080ffffffffe8e8e5ffffffff||tt0806e6e6effe8e8e5ffffffff};{Environment:Hydrology@rtgauges-0-8-%2Bptrim-8-100-%2Bprism-1-100-.t5v};~Places@annomreal-0-5-+annodhs-0-5-+ngagns-0-5-+points2-0-5-+hotels-0-5-;Places@annomreal-5-20-+annodhs-5-20-+ngagns-5-20-+points2-5-20-+hotels-5-20-;{Roads::~names:Open_Street_Maps@osm2014-0-100-._n;~lines:Open_Street_Maps@osm2014-0-100-.2_};{Towns::~towns:Cities,_towns@wtown-0-100-}';
+    var legendStr = tf.js.GetNonEmptyString(legendStrTest);
+    if (legendStr != undefined) {
+        //legendStr = defaultHybridLegend;
+        //legendStr = defaultMapLegend;
+        legendStr = defaultM1Legend;
+        var decodedLegend = tf.js.DecodeLegend(legendStr);
+        //var decodedLegend = decodeLegendOrig(legendStr);
+        console.log(decodedLegend);
+        var compositesStr = tf.js.GetLegendCompositesStrs(decodedLegend);
+        console.log(compositesStr);
+    }
+}
+
+/*
+
+~Places:Places
+    @gnis2-0-6+
+    hotels-0-6;
+
+http://n00.cs.fiu.edu/Defaults/layers.hybrid.mapnik2
+
+{
+    Cities::
+        ~Capitals:Capitals_WorldMap
+            @wm_Capitals-120-6000;
+        Capitals:Capitals_WorldMap
+            @wm_Capitals-6000-15000;
+        ~Metro:Big_Cities_over_million_WorldMap
+            @wm_Cities_Greater_900K-120-5000;
+        Metro:Big_Cities_over_million_WorldMap
+            @wm_Cities_Greater_900K-5000-15000;
+        ~Cities:Cities_WorldMap
+            @wm_Cities_75K_to_900K-120-2400+
+            wm_Cities_Greater_900K-120-2400+
+            wm_Cities_Unknownpop-120-2400;
+        Cities:Cities_WorldMap
+            @wm_Cities_75K_to_900K-2400-15000+
+            wm_Cities_Greater_900K-2400-15000+
+            wm_Cities_Unknownpop-2400-15000;
+};
+
+{
+    Hubs::
+        ~Ports:Marine_Ports_WorldMap
+            @wm_Marine_Ports-120-360;
+        Ports:Marine_Ports_WorldMap
+            @wm_Marine_Ports-360-2000;
+        ~Railway:Railway_Stations_WorldMap
+            @wm_Railway_Stations-120-240;
+        ~Airports:Airports_WorldMap
+            @wm_Airports-120-240;
+};
+
+{
+    Water::
+        Bays:Seas_and_Bays_WorldMap
+            @wm_Seas_Bays-120-2000;
+        Glaciers:Glaciers_WorldMap
+            @wm_Glacier-120-4000;
+        ~Rivers_B:Lake_and_River_contours_WorldMap
+            @wm_Water_Poly-120-500;
+        ~Great_Lakes_L:Great_Lakes_labels_WorldMap
+            @WM_GREAT_LAKES_NAME-120-4000;
+        ~Great_Lakes_B:Great_Lakes_contours_WorldMap
+            @wm_Great_Lakes-120-4000;
+        OSM-water:Lake_and_River_contours_from_Open_Street_Maps
+            @osm_water-0-4000;
+};
+
+{
+    Regions::
+        ~Admin_L:States_and_Provinces_names_labeled_WorldMap
+            @wm_World_Admin_name-120-2000;
+        ~Admin_B:States_and_Provinces_boundaries_WorldMap
+            @wm_World_Admin-120-2000;
+        ~Countries_L:Nation_names_labeled_WorldMap
+            @nation_name-2000-5000;
+        Countries_L:Nation_names_labeled_WorldMap
+            @nation_name-5000-30000;
+        ~Countries_B:Nations_boundaries_WorldMap
+            @wm_World_Nations-120-15000;
+        OSM-Admin:Administrative_boundaries_from_Open_Street_Maps
+            @osm_admin-0-60000;
+};
+
+{
+    Parcels::
+        FA-address:Addresses_from_First_American_Parcel_Data
+            @fa_address-0-0.5;
+        FA-owner:Property_owner_from_First_American_Parcel_Data
+            @fa_owner-0-0.5;
+        ~lines:Property_lines,_from_First_American
+            @fa_parcel-0-1;
+        lines:Property_lines,_from_First_American
+            @fa_parcel-1-2;
+        OSM-buildings:Building_contours_from_Open_Street_Maps
+            @osm_buildings-0-7;
+};
+
+{
+    People::
+        population:People_per_block_per_Census_2000
+            @blk_pop-0-5;
+        income:Aggregate_Neighborhood_Income_and_number_of_homes,_per_Census-2000
+            @bg_mhinc-0.7-10+blkgrpy-0.7-10;
+};
+
+{
+    Services::
+        ~business:Yellow_Pages
+            @nypages-0-1.2;
+        business:Yellow_Pages
+            @nypages-1.2-5;
+        food:Restaurants_from_NavTeq
+            @nv_restrnts-0-10;
+        doctors:Physicians_specialties
+            @physicianspecialty-0-5;
+};
+
+Landmarks:Cultural_Landmarks_WorldMap
+    @wm_Cultural_Landmarks-120-240;
+
+Utilities:Utilities_WorldMap
+    @wm_Utilities-120-720;
+    
+Environment:Hydrology
+    @prism-0-120;
+    
+~Places:Places
+    @gnis2-0-6+
+    hotels-0-6;
+
+Places:Places
+    @gnis2-6-24+
+    hotels-6-24;
+    
+OSM-place-names:Place_names_labeled_from_Open_Street_Maps
+    @osm_place_names-0-30000;
+
+{
+    Roads::
+        lines:Road_lines_from_NavTeq
+            @street-0-2000;
+        names:Road_names_labeled_from_NavTeq
+            @street_names-0-240;
+        ~OSM-lines:Road_lines_from_Open_Street_Maps
+            @osm_roads-0.5-7000;
+        OSM-lines:Road_lines_from_Open_Street_Maps
+            @osm_roads-0-0.5;
+        ~OSM-names:Road_names_labeled_from_Open_Street_Maps
+            @osm_road_names-0-7000;
+        ~routes:Routes_WorldMap
+            @wm_Major_Routes-120-1000+
+            wm_Minor_Routes-120-1000;
+        routes:Routes_WorldMap
+            @wm_Major_Routes-1000-5000+
+            wm_Minor_Routes-1000-5000;
+        ~railways:Railroad_WorldMap
+            @wm_Railroad_Track-120-2000;
+};
+
+{
+    Towns::
+        ~borders:Borders
+            @incorp-0-120;
+        ~towns:Cities,_towns
+            @wtown-0-60;
+};
+
+
+http://n00.cs.fiu.edu/Defaults/layers.maponly.mapnik2
+
+{
+	OSM::
+	~buildings:Building_outlines
+		@osm_buildings-0-60;
+	~land:Land
+		@osm_land-0-240000;
+	~landuse:Land_usage_information
+		@osm_landuse-0-7000;
+	~place_names:Names_for_country,state,city_and_other small_places
+		@osm_place_names-0-15000;
+	~road_names:Road_names
+		@osm_road_names-0-240;
+	~roads:Roads
+		@osm_roads-0-7000;
+	~water:Water_outlines
+		@osm_water-0-15000;
+};
+
+
+http://vn4.cs.fiu.edu/defaultmap
+
+{Cities::~Capitals:Capitals_WorldMap@wm_Capitals-100-5000-.f2;Capitals:Capitals_WorldMap@wm_Capitals-5000-99999-.f2;~Metro:Big_Cities_over_million_WorldMap@wm_Cities_Greater_900K-100-4000-.f2;Metro:Big_Cities_over_million_WorldMap@wm_Cities_Greater_900K-4000-12000-.f2;~Cities:Cities_WorldMap@wm_Cities_75K_to_900K-100-2000-.f3+wm_Cities_Greater_900K-100-2000-.f2+wm_Cities_Unknownpop-100-2000-.f3;Cities:Cities_WorldMap@wm_Cities_75K_to_900K-2000-6000-.f3+wm_Cities_Greater_900K-2000-6000-.f2+wm_Cities_Unknownpop-2000-6000-.f3};
+{Hubs::~Ports:Marine_Ports_WorldMap@wm_Marine_Ports-100-300-.f3;Ports:Marine_Ports_WorldMap@wm_Marine_Ports-300-10000-.f3;~Railway:Railway_Stations_WorldMap@wm_Railway_Stations-100-300-.f3;Railway:Railway_Stations_WorldMap@wm_Railway_Stations-300-10000-.f3;~Airports:Airports_WorldMap@wm_Airports-100-500-.f3;Airports:Airports_WorldMap@wm_Airports-500-10000-.f3};Landmarks:Cultural_Landmarks_WorldMap@wm_Cultural_Landmarks-100-1500-.f3;Utilities:Utilities_WorldMap@wm_Utilities-100-600-.1_50ff0000;
+{Roads::~Routes:Routes_WorldMap@wm_Major_Routes-100-800-.2nB3ff8000+wm_Minor_Routes-100-800-.lnB3ffff00+wm_Major_Routes-100-800-.lnB3ff8000+wm_Minor_Routes-100-800-.lnB3ffff00;Routes:Routes_WorldMap@wm_Major_Routes-800-4000-.2nB3ff8000+wm_Minor_Routes-800-4000-.lnB3ffff00+wm_Major_Routes-800-4000-.lnB3ff8000+wm_Minor_Routes-800-4000-.lnB3ffff00;~Railways:Railroad_WorldMap@wm_Railroad_Track-100-2000-.l_5000ff00;Railways:Railroad_WorldMap@wm_Railroad_Track-2000-8000-.l_5000ff00};
+{Water::Bays:Seas_and_Bays_WorldMap@wm_Seas_Bays-100-3000-.f4;Glaciers:Glaciers_WorldMap@wm_Glacier-100-80000-.t0t6e6e6e000001ffffff||ttt6e6e6e000001ffffff;~Rivers_B:Lake_and_River_contours_WorldMap@wm_Water_Poly-100-3000-.t00806e6e6ef099b3cc70ffffff||0t0806e6e6ef099b3cc70ffffffi;Rivers_B:Lake_and_River_contours_WorldMap@wm_Water_Poly-3000-10000-.t00806e6e6ef099b3cc70ffffff||0t0806e6e6ef099b3cc70ffffffi;~Great_Lakes_L:Great_Lakes_labels_WorldMap@WM_GREAT_LAKES_NAME-100-3000-.l2;Great_Lakes_L:Great_Lakes_labels_WorldMap@WM_GREAT_LAKES_NAME-3000-10000-.l2;~Great_Lakes_B:Great_Lakes_contours_WorldMap@wm_Great_Lakes-100-6000-.t00806e6e6e8099b3ccff000001||0t0806e6e6e8099b3ccff000001;Great_Lakes_B:Great_Lakes_contours_WorldMap@wm_Great_Lakes-6000-99999-.t00806e6e6e8099b3ccff000001||0t0806e6e6e8099b3ccff000001};
+{Regions::~Admin_L:States_and_Provinces_names_labeled_WorldMap@wm_World_Admin_name-100-3000-.l2;Admin_L:States_and_Provinces_names_labeled_WorldMap@wm_World_Admin_name-3000-10000-.l2;~Admin_B:States_and_Provinces_boundaries_WorldMap@wm_World_Admin-100-10000-.t0080ffffffffe8e8e5ffffffff||tt080323232ffe8e8e5ffffffff;Admin_B:States_and_Provinces_boundaries_WorldMap@wm_World_Admin-10000-40000-.t0080ffffffffe8e8e5ffffffff||tt080323232ffe8e8e5ffffffff;~Countries_L:Nation_names_labeled_WorldMap@nation_name-100-5000-.l2;Countries_L:Nation_names_labeled_WorldMap@nation_name-5000-99999-.l2;~Countries_B:Nations_boundaries_WorldMap@wm_World_Nations-100-100000-.t0080ffffffffe8e8e5ffffffff||tt0806e6e6effe8e8e5ffffffff};
+{Environment:Hydrology@rtgauges-0-8-%2Bptrim-8-100-%2Bprism-1-100-.t5v};~Places@annomreal-0-5-+annodhs-0-5-+ngagns-0-5-+points2-0-5-+hotels-0-5-;Places@annomreal-5-20-+annodhs-5-20-+ngagns-5-20-+points2-5-20-+hotels-5-20-;
+{Roads::~names:Open_Street_Maps@osm2014-0-100-._n;~lines:Open_Street_Maps@osm2014-0-100-.2_};
+{Towns::~towns:Cities,_towns@wtown-0-100-}
+
+*/
+
+
+
+
+
+function decodeLegendOrig(legendStr) {
+    var legendSet = [], grSet = {};
+    var legendString = unescape(legendStr);
+    var arrLegendGroupString = legendString.split(";");
+    var rawLegendGroup;// a raw string with {, ::, and group set info
+    var pureLegendGroup;// a pure legend string with group set info removed
+    var i, j;
+    var swap;
+    var groupSetName = "";
+    var groupSetDesc = "";
+    var isInGroupSet = false;
+
+    for (i = 0; i < arrLegendGroupString.length; i++) {
+        rawLegendGroup = arrLegendGroupString[i];
+        // is group set begin else In a GroupSet, not the beginning section else Not in a GroupSet
+        if (rawLegendGroup.substr(0, 1) == "{") {
+            // A GroupSet Begins, the beginning section
+            isInGroupSet = true;
+            rawLegendGroup = rawLegendGroup.substr(1);
+            var tempArray = rawLegendGroup.split("::");
+            if (tempArray.length > 1) {
+                groupSetName = tempArray[0];
+                pureLegendGroup = tempArray[1];
+                tempArray = groupSetName.split(":");
+                groupSetName = tempArray[0];
+                if (tempArray.length == 2) { groupSetDesc = tempArray[1]; }
+                else { groupSetDesc = tempArray[0]; }
+            }
+            else { groupSetName = ""; groupSetDesc = ""; pureLegendGroup = rawLegendGroup; }
+        }
+        else if (isInGroupSet) { pureLegendGroup = rawLegendGroup; }
+        else { groupSetName = ""; groupSetDesc = ""; pureLegendGroup = rawLegendGroup; }
+
+        // // is group set end
+        if (pureLegendGroup.substr(pureLegendGroup.length - 1, 1) == "}") {
+            pureLegendGroup = pureLegendGroup.substr(0, pureLegendGroup.length - 1);
+            isInGroupSet = false;
+        }
+
+        tempArray = pureLegendGroup.split("@");
+        var groupLabelAndDesc = tempArray[0];
+
+        // group LABEL, DESC and IS_CHECK
+        var group = { ISCHECK: false, LABEL: "", DESC: "", VALUE: "", GRSET: groupSetName, GRDESC: groupSetDesc, MAX_RES: 1.0, MIN_RES: 10e10, COMPOSITES: [] };
+
+        // is check
+        if (groupLabelAndDesc.substr(0, 1) == "~") { group.ISCHECK = true; groupLabelAndDesc = groupLabelAndDesc.substr(1, groupLabelAndDesc.length); }
+
+        // get label and description
+        var index = groupLabelAndDesc.indexOf(":");
+        // has both label and description, or label only, description = label
+        if (index > 0) {
+            group.LABEL = groupLabelAndDesc.substring(0, index);
+            group.DESC = groupLabelAndDesc.substring(index + 1, groupLabelAndDesc.length);
+        }
+        else { group.DESC = group.LABEL = groupLabelAndDesc; }
+
+        group.LABEL = group.LABEL.replace(/\_/g, ' ');
+        group.DESC = group.DESC.replace(/\_/g, ' ');
+
+        if (tempArray.length > 1) {
+            var arrGroupLayerString = (tempArray[1]).split("+");
+            for (j = 0; j < arrGroupLayerString.length; j++) {
+                var currentPartString = arrGroupLayerString[j];
+                var currentParts = currentPartString.split("-");
+                var partsCount = currentParts.length;
+
+                var composite = { MODE: "RES", PREFIX: "", VALUE: "", SUFFIX_M: "", SUFFIX_H: "", MIN: 10e10, MAX: -1 };
+
+                // e.g. street.l_ else downward compatible else e.g. flpropertiesyear-0-0.15
+                if (partsCount == 1) { composite.VALUE = composite.PREFIX = currentPartString; composite.MIN = -1; composite.MAX = 150; }
+                else if (partsCount == 2) {
+                    composite.VALUE = composite.PREFIX = currentPartString;
+                    var digitMin = currentParts[1].substr(0, 1);
+                    var digitMax = currentParts[1].substr(1, 1);
+
+                    if (digitMin == "_") { composite.MIN = 0; }
+                    else { composite.MIN = Math.pow(2, (parseInt(digitMin, 10))); if (composite.MIN > 150) composite.MIN = 150; }
+                    if (digitMax == "_") { composite.MAX = 0.999; }
+                    else {
+                        composite.MAX = Math.pow(2, (parseInt(digitMax, 10) + 1)) - 0.001;
+                        if (composite.MAX > 150) composite.MAX = 150;
+                    }
+                }
+                else if ((partsCount == 3) || (partsCount == 4)) {
+                    composite.PREFIX = currentParts[0] + "-" + currentParts[1] + "-" + currentParts[2] + "-";
+                    composite.VALUE = currentParts[0];
+                    composite.MIN = parseFloat(currentParts[1]);
+                    composite.MAX = parseFloat(currentParts[2]);
+
+                    if (composite.MIN > composite.MAX) { swap = composite.MIN; composite.MIN = composite.MAX; composite.MAX = swap; }
+
+                    if (partsCount == 4) {
+                        var suffixs = currentParts[3].split("||");
+                        composite.SUFFIX_H = suffixs[0];
+                        composite.SUFFIX_M = (suffixs.length == 2) ? suffixs[1] : suffixs[0];
+                    }
+                }
+
+                group.MAX_RES = (composite.MAX > group.MAX_RES) ? composite.MAX : group.MAX_RES; // Max resolution
+                group.MIN_RES = (composite.MIN < group.MIN_RES) ? composite.MIN : group.MIN_RES; // Min resolution
+
+                if (group.VALUE == "") { group.VALUE = composite.VALUE; }
+                else { group.VALUE += ("%2B" + composite.VALUE); }
+                group.COMPOSITES.push(composite);
+            } //end of loop j
+            legendSet.push(group);
+        }
+    } // end of loop (i)
+
+    //legendSet.reverse();
+
+    var legendSetLen = legendSet.length;
+
+    var groupSetNames = [];
+
+    for (var i = 0 ; i < legendSetLen ; i++) {
+        var thisItem = legendSet[i];
+        var groupSetName = thisItem.GRSET;
+        if (groupSetName === "") { groupSetName = "tf-mapi-lgrt"; }
+        var thisGRSet = grSet[groupSetName];
+        if (!thisGRSet) { grSet[groupSetName] = {}; thisGRSet = grSet[groupSetName]; groupSetNames.push(groupSetName); }
+        if (!thisGRSet.items) { thisGRSet.items = []; }
+        thisGRSet.items.push(thisItem);
+    }
+
+    return {
+        "legendSet": legendSet,
+        "groupSet": grSet,
+        "groupSetNames": groupSetNames
+    }
+};

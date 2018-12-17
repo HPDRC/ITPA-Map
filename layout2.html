@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <link href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:100,300,400,700" rel="stylesheet" type="text/css">
+
+    <style>
+        body {
+            width:100%; height: 100%; padding: 2px; margin: 0px; border: 0px; overflow: hidden; background: lightgreen;
+        }
+
+        .mostly-customized-scrollbar::-webkit-scrollbar {
+            width: 5px; height: 8px; background-color: #aaa;
+        }
+
+        .mostly-customized-scrollbar::-webkit-scrollbar-thumb {
+            background: #000;
+        }
+
+        .appContainer {
+            position: absolute;
+            display: block;
+            overflow: hidden;
+            width: calc(100% - 4px);
+            height: calc(100% - 4px);
+            padding: 0px;
+            margin: 0px;
+            border: 0px;
+            overflow: hidden;
+            background: green;
+        }
+        .popupWrapper {
+            display: flex;
+            flex-flow: column nowrap;
+            position: absolute;
+            overflow: visible;
+            background-color: aqua;
+            background-color: transparent;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 50px;
+            max-height: 35%;
+            width: 400px;
+        }
+        .popupBelow {
+            display: flex;
+            flex-flow: column nowrap;
+            overflow: visible;
+            position: absolute;
+            top: calc(100% + 2px);
+            left: 50%;
+            width: calc(100% - 4px);
+            padding: 2px;
+            height: 30px;
+            text-align: center;
+            background-color: rgba(240, 245, 255, 0.5);
+            color: white;
+            transform: translateX(-50%);
+            border-radius: 4px;
+        }
+        .popupBelowContent {
+            /*overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;*/
+            margin: auto;
+        }
+        .popupToolBar {
+            flex-shrink: 0;
+            flex-grow: 0;
+            width: calc(100% - 4px);
+            height: 20px;
+            font-size: 12px;
+            line-height: 16px;
+            padding: 2px;
+            text-align: center;
+            background-color: rgba(240, 245, 255, 1);
+            color: black;
+            margin: auto;
+            margin-bottom: 2px;
+            border-radius: 4px;
+        }
+        .popupTitle {
+            flex-shrink: 0;
+            flex-grow: 0;
+            margin: auto;
+            width: calc(100% - 4px);
+            height: 20px;
+            font-size: 16px;
+            line-height: 20px;
+            padding: 2px;
+            text-align: center;
+            background-color: rgba(255, 140, 0, 1);
+            /*background-color: red;*/
+            color: black;
+            margin-bottom: 4px;
+            border-radius: 5px;
+        }
+        .popupContentWrapper {
+            background-color: rgba(240, 245, 255, 1);
+            flex-shrink: 1;
+            flex-grow: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            max-height: 300px;
+            border-radius: 4px;
+        }
+
+        .optionsRow {
+            border-radius: 2px;
+            display: flex;
+            flex-flow: row nowrap;
+            width: 100%;
+            line-height: 24px;
+            font-size: 16px;
+        }
+        .optionInRow {
+            border-radius: 2px;
+            flex: 1;
+            text-align: center;
+            display: block;
+        }
+        .optionSelected {
+            background: dodgerblue;
+            color: white;
+        }
+        .optionInRow:hover {
+            text-decoration:underline;
+            cursor: pointer;
+        }
+
+    </style>
+
+    <title></title>
+</head>
+<body>
+    <div class = "appContainer">
+        <div class = "popupWrapper">
+            <div class="popupToolBar">
+                toolbar with lots of buttons
+            </div>
+            <div class="popupContentWrapper mostly-customized-scrollbar">
+                <div class="optionsRow">
+                    <div class="optionInRow optionSelected">Expand all groups</div>
+                    <div class="optionInRow">Collapse all groups</div>
+                </div>
+                <div class="popupTitle">
+                    Last Clicked Searched Location
+                </div>
+                <div class="popupContent">
+                    one Content one Content one Content one Content one Content one Content one Content one Content one Content one Content one Content one Content
+                </div>
+                <div class="popupContent">
+                    two Content two Content two Content two Content two Content two Content two Content two Content two Content two Content two Content two Content
+                </div>
+                <div class="popupContent">
+                    three Content three Content three Content three Content three Content three Content three Content three Content three Content three Content three Content three Content
+                </div>
+                <div class="popupContent">
+                    one Content one Content one Content one Content one Content one Content one Content one Content one Content one Content one Content one Content
+                </div>
+                <div class="popupContent">
+                    two Content two Content two Content two Content two Content two Content two Content two Content two Content two Content two Content two Content
+                </div>
+                <div class="popupContent">
+                    three Content three Content three Content three Content three Content three Content three Content three Content three Content three Content three Content three Content
+                </div>
+            </div>
+            <div class = "popupBelow">
+                <div class="popupBelowContent">
+                    25.12345 -80.87654
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    </script>
+</body>
+</html>

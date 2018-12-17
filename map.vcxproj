@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{FF6AFC62-6C28-4D8D-844B-CB0940C74335}</ProjectGuid>
+    <RootNamespace>map</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="MAKEMAP.txt" />
+    <Text Include="todo.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="agencies\agencies.jsx" />
+    <None Include="agencies\debug.html" />
+    <None Include="agencies\index.html" />
+    <None Include="agencies\init.jsx" />
+    <None Include="appsizer.js" />
+    <None Include="auxmapwrapper.js" />
+    <None Include="baselayers.js" />
+    <None Include="baselayerstoolbar.js" />
+    <None Include="bottompane.js" />
+    <None Include="compass.js" />
+    <None Include="content.js" />
+    <None Include="crudx\crudx.jsx" />
+    <None Include="crudx\debug.html" />
+    <None Include="crudx\index.html" />
+    <None Include="crudx\init.jsx" />
+    <None Include="customappcontent.js" />
+    <None Include="datasets.js" />
+    <None Include="datasetsbar.js" />
+    <None Include="datasetsearch.js" />
+    <None Include="debug.html" />
+    <None Include="directionsaddress.js" />
+    <None Include="directionspanel.js" />
+    <None Include="directionsresults.js" />
+    <None Include="directionsresultscontent.js" />
+    <None Include="directionsresultsitem.js" />
+    <None Include="directionstestm\debug.html" />
+    <None Include="directionstestm\directionstest.jsx" />
+    <None Include="directionstestm\helpers.jsx" />
+    <None Include="directionstestm\index.html" />
+    <None Include="directionstestm\init.jsx" />
+    <None Include="directionstest\directionstest.jsx" />
+    <None Include="directionstest\debug.html" />
+    <None Include="directionstest\index.html" />
+    <None Include="directionstest\init.jsx" />
+    <None Include="geofences.js" />
+    <None Include="geofencesapp.js" />
+    <None Include="global.js" />
+    <None Include="gtfseditor\calendar.jsx" />
+    <None Include="gtfseditor\calendar_dates.jsx" />
+    <None Include="gtfseditor\debug.html" />
+    <None Include="gtfseditor\index.html" />
+    <None Include="gtfseditor\init.jsx" />
+    <None Include="gtfseditor\post.jsx" />
+    <None Include="gtfseditor\routes.jsx" />
+    <None Include="gtfseditor\shapes.jsx" />
+    <None Include="gtfseditor\stops.jsx" />
+    <None Include="gtfseditor\stop_sequences.jsx" />
+    <None Include="gtfseditor\trips.jsx" />
+    <None Include="gtfs\agenciescontent.js" />
+    <None Include="gtfs\agencieslist.js" />
+    <None Include="gtfs\agencieslisteditor.js" />
+    <None Include="gtfs\agencyeditor.js" />
+    <None Include="gtfs\api.js" />
+    <None Include="gtfs\css.js" />
+    <None Include="gtfs\app.js" />
+    <None Include="gtfs\editorcommon.js" />
+    <None Include="gtfs\notify.js" />
+    <None Include="gtfs\routeslisteditor.js" />
+    <None Include="gtfs\serviceslisteditor.js" />
+    <None Include="gtfs\signin.js" />
+    <None Include="gtfs\stopsequenceslisteditor.js" />
+    <None Include="gtfs\stopslisteditor.js" />
+    <None Include="gtfs\tripslisteditor.js" />
+    <None Include="gtfs\userscontent.js" />
+    <None Include="gtfs\userslist.js" />
+    <None Include="iconbutton.js" />
+    <None Include="index.html" />
+    <None Include="inputbox.js" />
+    <None Include="linecliptest.js" />
+    <None Include="lsed.js" />
+    <None Include="mapfeaturedrag.js" />
+    <None Include="mapfeaturepropsdisplayer.js" />
+    <None Include="maplocations.js" />
+    <None Include="maptoolbar.js" />
+    <None Include="mdtbusapp.js" />
+    <None Include="measuretool.js" />
+    <None Include="moremaptools.js" />
+    <None Include="overmapcanvas.js" />
+    <None Include="perspectivemap.js" />
+    <None Include="photodisplayer.js" />
+    <None Include="photolist.js" />
+    <None Include="photolistdisplayer.js" />
+    <None Include="pinmapfeature.js" />
+    <None Include="rutils\helpers.jsx" />
+    <None Include="rutils\login.jsx" />
+    <None Include="searchbar.js" />
+    <None Include="searchmapfeatures.js" />
+    <None Include="sidepane.js" />
+    <None Include="sseq\index.html" />
+    <None Include="sseq\init.jsx" />
+    <None Include="sseq\stop_sequences.jsx" />
+    <None Include="styles.js" />
+    <None Include="tfmapapp.js" />
+    <None Include="tfmapappinit.js" />
+    <None Include="togglebutton.js" />
+    <None Include="tooltipdisplayer.js" />
+    <None Include="transit.js" />
+    <None Include="transitbus.js" />
+    <None Include="transitplan.js" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

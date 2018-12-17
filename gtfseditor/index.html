@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="htmlClass">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+
+    <link href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:100,300,400,700" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+
+    <script crossorigin="anonymous" src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin="anonymous" src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin="anonymous" src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <script type="text/javascript">
+        var tf_skip_bootstrap_app = true;
+    </script>
+
+    <script crossorigin="anonymous" src="../tfmap.js"></script>
+
+    <link href="../rutils/common.css" rel="stylesheet" type="text/css">
+
+    <title>GTFSEd</title>
+</head>
+<body class="bodyClass">
+    <div class="topDiv">
+        <div class="leftSide">
+            <div class="topContainer" id="loginContainer"></div>
+            <div class="topContainer" id="busTrackingContainer"></div>
+            <div class="topContainer" id="postAgencyContainer"></div>
+            <div class="topContainer" id="calendarContainer"></div>
+            <div class="topContainer" id="calendarDatesContainer"></div>
+            <div class="topContainer" id="routesContainer"></div>
+            <div class="topContainer" id="shapesContainer"></div>
+            <div class="topContainer" id="stopsContainer"></div>
+            <div class="topContainer" id="stopSequencesContainer"></div>
+            <div class="topContainer" id="tripsContainer"></div>
+        </div>
+        <iframe src="../index.html?fmap=m2&directionsmode=bus&directionsbus=1&type=map&dlayerextent=20&perspectivemap=&Lat=25.757765&Lon=-80.367935&res=&Legendh=$$http://n00.cs.fiu.edu/defaultmapWMFL$$&&DLayerSelect1=false&dlayerfield1=L&DLayerColor1=&DLayerLegend1=Sights&DLayerData1=http%3A//acorn.cs.fiu.edu/cgi-bin/arquery.cgi%3Fcategory%3Dgeoimages%26visualvalue>%3D4%26vid=itpa%26tfaction=shortdisplayflash%26filetype=.json&Panels=type+zoom+nav+overview+measure+download+legend+fullscreen&address=1225+SW+107+AVE,++MIAMI,+FLORIDA+33174&vid=itpa&tf_passtrough=%26tfaction%3Ddispense%26sreq%3Dgnisstr" id="mapDiv" class="rightSide"></iframe>
+    </div>
+    <script crossorigin="anonymous" type="text/babel" src="../rutils/helpers.jsx"></script>
+    <script crossorigin="anonymous" type="text/babel" src="../rutils/login.jsx"></script>
+    <script crossorigin="anonymous" type="text/babel" src="./bustracking.jsx"></script>
+    <script crossorigin="anonymous" type="text/babel" src="./post.jsx"></script>
+    <script crossorigin="anonymous" type="text/babel" src="./calendar.jsx"></script>
+    <script crossorigin="anonymous" type="text/babel" src="./calendar_dates.jsx"></script>
+    <script crossorigin="anonymous" type="text/babel" src="./routes.jsx"></script>
+    <script crossorigin="anonymous" type="text/babel" src="./shapes.jsx"></script>
+    <script crossorigin="anonymous" type="text/babel" src="./stops.jsx"></script>
+    <script crossorigin="anonymous" type="text/babel" src="./stop_sequences.jsx"></script>
+    <script crossorigin="anonymous" type="text/babel" src="./trips.jsx"></script>
+    <script crossorigin="anonymous" type="text/babel" src="./init.jsx"></script>
+</body>
+</html>
